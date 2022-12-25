@@ -1,6 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
+  transition: 0.5s;
 }
 .main1{
 
@@ -22,6 +23,7 @@
   min-height: 80vh;
   background-color: aqua;
   /* position: relative; */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 .input_field{
 display: flex;
@@ -131,6 +133,7 @@ padding: 10px;
   background-color: white;
   padding: 5px;
   border-radius: 30px;
+  margin-top: 2px;
 }
 .mylink>a{
   text-decoration: none;
