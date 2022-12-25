@@ -1,0 +1,132 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.main1{
+
+
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(255, 94, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.main{
+  min-width: 400px;
+  width: 80vw;
+
+  min-height: 80vh;
+  background-color: aqua;
+  /* position: relative; */
+}
+.input_field{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2px;
+
+}
+.input_field>input{
+width: 50%;
+height: 28px;
+margin: 10px;
+font-size: 16px;
+font-family: serif;
+border-radius: 30px;
+box-sizing:border-box;
+padding: 15px;
+}
+.input_field>button{
+background-color: blueviolet;
+width: 60px;
+height: 18px;
+box-sizing: content-box;
+padding: 5px;
+border-radius: 30px;
+border: 2px solid white;
+}
+
+.input_field>button:hover{
+  background-color: white;
+ 
+}
+.note_field>div>h3{
+  text-align: left;
+/* background-color: white; */
+display: block;
+padding: 10px;
+}
+.created_div2{
+  /* background-color: red; */
+  display: flex;
+  justify-content: flex-end;
+}
+.created_div2>:nth-child(1){
+  /* background-color: red; */
+  background-color: rgb(13, 126, 231);
+  /* width: 30px; */
+  height: 13px;
+  box-sizing: content-box;
+  padding:5px;
+  border-bottom-left-radius: 10px;
+  border: 2px solid white;
+  /* margin: 2px; */
+}
+.created_div2>:nth-child(2){
+  /* background-color: red; */
+  background-color: rgb(13, 126, 231);
+  width: 30px;
+  height: 13px;
+  box-sizing: content-box;
+  padding:5px;
+  border-bottom-right-radius: 10px;
+  border: 2px solid white;
+  /* margin: 2px; */
+}
+
+.setting_div{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 65vh;
+  
+  /* background-color: rgb(94, 255, 0); */
+}
+
+/* setting popup */
+#setting_popup{
+  background-color: #aa21ff;
+  width: 300px;
+  min-height: 300px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  /* position the div in center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#setting_popup>div{
+  display: flex;
+  justify-content: left;
+
+  /* display: inline; */
+  width: 200px;
+}
+#setting_popup>div>button{
+
+
+  /* display: inline; */
+  width: 150px;
+}
+
+
+
