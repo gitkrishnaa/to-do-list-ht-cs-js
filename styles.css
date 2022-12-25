@@ -127,6 +127,14 @@ padding: 10px;
   /* display: inline; */
   width: 150px;
 }
-
-
+.mylink{
+  background-color: white;
+  padding: 5px;
+  border-radius: 30px;
+}
+.mylink>a{
+  text-decoration: none;
+  /* background-color: blueviolet; */
+  
+}
 
