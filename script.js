@@ -66,6 +66,77 @@ let note_store_array = [];
 
 
 ///main render function which render all localstorage array eleent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////function section\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+// 1.fuction use for edit button will modify local storage
+const edit_Localstorage_array_element = (arg_data, arg_id, key) => {
+  //this arg_data is assing data at arg_id index
+  let elemet1 = JSON.parse(localStorage.getItem(key));
+  elemet1[arg_id[1]] = arg_data;
+  let afterEdit_into_stringfy = JSON.stringify(elemet1);
+  localStorage.setItem(key, afterEdit_into_stringfy);
+  console.log(elemet1, afterEdit_into_stringfy[10]);
+};
+// edit_Localstorage_array_element("edfghj","e2","note_array")
+// console.log(JSON.parse(localStorage.getItem("note_array")));
+//1. closed
+// 3.string to array and remove first char then array to string/ status - working
+let Remove_first_char=(data1)=>{
+  let str=data1
+  let arr3=[...str]
+  arr3.shift()
+  let data = arr3.join("")
+  console.log(data)
+  return data;
+  
+}
+ 
+
+
+
+
+
+//2. delete function that delete elemnt in array of local storage
+const delete_Localstorage_array_element = (arg_id, key) => {
+  //this arg_data is assing data at arg_id index
+  let elemet1 = JSON.parse(localStorage.getItem(key));
+
+
+
+ let final_id= Remove_first_char(arg_id);//worked fine
+
+elemet1[final_id]="";
+let deletd_item=elemet1
+  let after_delete_into_stringfy = JSON.stringify(elemet1);
+  localStorage.setItem(key, after_delete_into_stringfy);
+  console.log(elemet1, after_delete_into_stringfy[10],"inside ");
+  return deletd_item;
+};
+// console.log(delete_Localstorage_array_element("04","note_array"))
+
+
+
+//2. dlete  is closed
+
+
 let renderFunc2 = (arg1, arg2) => {
   // let div2 = document.createElement('div');
   // let note = document.createElement('h3');
@@ -141,9 +212,11 @@ let renderFunc2 = (arg1, arg2) => {
 
     //////////delete section
     delete_button.addEventListener('click', (e) => {
-      div1.remove();
+    
       delete_Localstorage_array_element(e.target.id,"note_array")
+
       console.log(e.target.id)
+      div1.remove();
     });
     /////////// delete section closed
 
@@ -167,43 +240,6 @@ let renderFunc2 = (arg1, arg2) => {
 
 
 
-
-
-
-
-
-///////////////////function section\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-// 1.fuction use for edit button will modify local storage
-const edit_Localstorage_array_element = (arg_data, arg_id, key) => {
-  //this arg_data is assing data at arg_id index
-  let elemet1 = JSON.parse(localStorage.getItem(key));
-  elemet1[arg_id[1]] = arg_data;
-  let afterEdit_into_stringfy = JSON.stringify(elemet1);
-  localStorage.setItem(key, afterEdit_into_stringfy);
-  console.log(elemet1, afterEdit_into_stringfy[10]);
-};
-// edit_Localstorage_array_element("edfghj","e2","note_array")
-// console.log(JSON.parse(localStorage.getItem("note_array")));
-//1. closed
-
-//2. delete function that delete elemnt in array of local storage
-const delete_Localstorage_array_element = (arg_id, key) => {
-  //this arg_data is assing data at arg_id index
-  let elemet1 = JSON.parse(localStorage.getItem(key));
-
-elemet1[arg_id[1]]="";
-let deletd_item=elemet1
-  let after_delete_into_stringfy = JSON.stringify(elemet1);
-  localStorage.setItem(key, after_delete_into_stringfy);
-  console.log(elemet1, after_delete_into_stringfy[10],"inside ");
-  return deletd_item;
-};
-// console.log(delete_Localstorage_array_element("04","note_array"))
-
-
-
-//2. dlete  is closed
 //////// local storege data adding
 add_note.addEventListener('click', () => {
   if (localStorage.getItem('note_array') == null) {
@@ -234,18 +270,43 @@ let data_in_localstorage = JSON.parse(localStorage.getItem('note_array'));
 console.log(data_in_localstorage + 'h1');
 let arr = [1, 2, 3, 4, 5];
 // renderFunc2 to render the all data in localstorage("hooffffr")
+
+//edit code id=124;filtering empty string elemnt to not render
+// reason because dection function will not delete but just assign empty string into localstorage empty element;
 data_in_localstorage.map((a, index) => {
-  renderFunc2(a, index);
+  if(a!=""){
+
+    renderFunc2(a, index);
+  }
+   
+  
+ 
 });
 //////////////////  eperiment section  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //1 checki is string workin as array inde //status-working
 // let str1="hello"
 // console.log(str1[1]) // checki is string workin as array inde //status-working
 
-//2 array element deleting//status - sucess
+// 2 array element deleting//status - sucess
 // let arr2=[1,2,3,4];
+
 // let i=1
 // arr2.splice(i,1)
 // // i mean which index will be delete
 // // argument 2nd=1 mean how many index after i will be delete
 // console.log(arr2)
+
+//@ 3 using shift in string // not worked
+// let arr2=[1,2,3,4];
+// let str1="hello"
+// str1.shift()
+// console.log(str1)
+// arr2.shift()
+// console.log(arr2)
+
+//@ 4 string to array and remove first char then array to string/ status - working
+// let str2="hello2"
+// let arr3=[...str2]
+// arr3.shift()
+// let data = arr3.join("")
+// console.log(data)
