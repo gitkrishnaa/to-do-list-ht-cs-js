@@ -85,19 +85,6 @@ let note_store_array = [];
 
 
 ///////////////////function section\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-// 1.fuction use for edit button will modify local storage
-const edit_Localstorage_array_element = (arg_data, arg_id, key) => {
-  //this arg_data is assing data at arg_id index
-  let elemet1 = JSON.parse(localStorage.getItem(key));
-  elemet1[arg_id[1]] = arg_data;
-  let afterEdit_into_stringfy = JSON.stringify(elemet1);
-  localStorage.setItem(key, afterEdit_into_stringfy);
-  console.log(elemet1, afterEdit_into_stringfy[10]);
-};
-// edit_Localstorage_array_element("edfghj","e2","note_array")
-// console.log(JSON.parse(localStorage.getItem("note_array")));
-//1. closed
 // 3.string to array and remove first char then array to string/ status - working
 let Remove_first_char=(data1)=>{
   let str=data1
@@ -108,6 +95,20 @@ let Remove_first_char=(data1)=>{
   return data;
   
 }
+// 1.fuction use for edit button will modify local storage
+const edit_Localstorage_array_element = (arg_data, arg_id, key) => {
+  //this arg_data is assing data at arg_id index
+  let elemet1 = JSON.parse(localStorage.getItem(key));
+  let final_id= Remove_first_char(arg_id);//worked fine
+  elemet1[final_id] = arg_data;
+  let afterEdit_into_stringfy = JSON.stringify(elemet1);
+  localStorage.setItem(key, afterEdit_into_stringfy);
+  console.log(elemet1, afterEdit_into_stringfy[10]);
+};
+// edit_Localstorage_array_element("edfghj","e2","note_array")
+// console.log(JSON.parse(localStorage.getItem("note_array")));
+//1. closed
+
  
 
 
@@ -240,7 +241,7 @@ let renderFunc2 = (arg1, arg2) => {
 
 
 
-//////// local storege data adding
+//////// local storege data adding and element adding
 add_note.addEventListener('click', () => {
   if (localStorage.getItem('note_array') == null) {
     localStorage.setItem('note_array', '[]');
@@ -258,8 +259,8 @@ add_note.addEventListener('click', () => {
 console.log(data_in_localstorage + 'h1');
 let arr = [1, 2, 3, 4, 5];
 // renderFunc2 to render the all data in localstorage("hooffffr")
-renderFunc2(data_in_localstorage[data_in_localstorage.length-1],data_in_localstorage.length)
-console.log(data_in_localstorage[data_in_localstorage.length],data_in_localstorage.length)
+renderFunc2(data_in_localstorage[data_in_localstorage.length-1],data_in_localstorage.length-1)
+console.log(data_in_localstorage[data_in_localstorage.length-1],data_in_localstorage.length-1)
 });
 
 //  let tem2=data_in_localstorage.map((index)=>{renderFunc(index)})
@@ -275,7 +276,7 @@ let arr = [1, 2, 3, 4, 5];
 // reason because dection function will not delete but just assign empty string into localstorage empty element;
 data_in_localstorage.map((a, index) => {
   if(a!=""){
-
+// let temp=index-1//modify 125
     renderFunc2(a, index);
   }
    
