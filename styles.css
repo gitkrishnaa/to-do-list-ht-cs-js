@@ -58,16 +58,19 @@ border: 2px solid white;
   background-color: white;
  
 }
-.note_field>div>h3{
+.note_field>div>div>h3{
   text-align: left;
 /* background-color: white; */
 display: block;
 padding: 10px;
+width: 100px;
+margin: 10px;
+width: 100%;
 }
 .created_div2{
   /* background-color: red; */
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 }
 .created_div2>:nth-child(1){
   /* background-color: red; */
